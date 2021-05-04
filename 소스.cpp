@@ -33,36 +33,7 @@ int main() {
 		}
 	}
 
-	while (choice == 1) {
-		int seat_x, seat_y, back;
-		cout << "몇 열, 몇 번째 좌석을 예약하시겠습니까? (이전으로 돌아가려면 0 입력)" << endl;
-		cin >> seat_x;
-		cin >> seat_y;
-
-		if (choice_seat[seat_x][seat_y - 1] == 0) {
-			cout << "예약되었습니다." << endl;
-			choice_seat[seat_x][seat_y - 1] = 1;
-			cout << "-------------------------------" << endl;
-			cout << " 1  2  3  4  5  6  7  8  9  10 " << endl;
-			cout << "-------------------------------" << endl;
-			for (a = 1; a < 4; a++) {
-				for (b = 0; b < 10; b++) {
-					cout << " " << choice_seat[a][b] << " ";
-				}
-				cout << endl;
-			}
-		}
-		
-		else if (choice_seat[seat_x][seat_y - 1] == 1)
-			cout << "이미 예약된 자리입니다." << endl;
-
-		else if (seat_x == 0) 
-			break; //0입력하면 while전으로 돌아가는건 어케하지??
-		
-
-	}
-
-	if (movie == 2) {
+	else if (movie == 2) { // 예약하지 않은 자리 취소하려고 할때 추가하기
 		int seatback_x;
 		int seatback_y;
 		cout << "     현재 예약된 좌석 현황     " << endl;
@@ -91,6 +62,68 @@ int main() {
 				cout << endl;
 			}
 		}
+		else if (choice_seat[seatback_x][seatback_y - 1] == 1)
+			cout << "예약되지 않은 자리입니다." << endl;
+	}
+
+	else if (movie == 3) { //내용 고치기
+		int seatback_x;
+		int seatback_y;
+		cout << "     현재 예약된 좌석 현황     " << endl;
+		cout << "-------------------------------" << endl;
+		cout << " 1  2  3  4  5  6  7  8  9  10 " << endl;
+		cout << "-------------------------------" << endl;
+		for (a = 1; a < 4; a++) {
+			for (b = 0; b < 10; b++) {
+				cout << " " << choice_seat[a][b] << " ";
+			}
+			cout << endl;
+		}
+		cout << "몇 열, 몇 번째 좌석을 예약 취소 하시겠습니까?" << endl;
+		cin >> seatback_x;
+		cin >> seatback_y;
+		if (choice_seat[seatback_x][seatback_y - 1] == 1) {
+			cout << "예약 취소 되었습니다." << endl;
+			choice_seat[seatback_x][seatback_y - 1] = 0;
+			cout << "-------------------------------" << endl;
+			cout << " 1  2  3  4  5  6  7  8  9  10 " << endl;
+			cout << "-------------------------------" << endl;
+			for (a = 1; a < 4; a++) {
+				for (b = 0; b < 10; b++) {
+					cout << " " << choice_seat[a][b] << " ";
+				}
+				cout << endl;
+			}
+		}
+	}
+
+	while (choice == 1) {
+		int seat_x, seat_y, back;
+		cout << "몇 열, 몇 번째 좌석을 예약하시겠습니까? (이전으로 돌아가려면 0 입력)" << endl;
+		cin >> seat_x;
+		cin >> seat_y;
+
+		if (choice_seat[seat_x][seat_y - 1] == 0) {
+			cout << "예약되었습니다." << endl;
+			choice_seat[seat_x][seat_y - 1] = 1;
+			cout << "-------------------------------" << endl;
+			cout << " 1  2  3  4  5  6  7  8  9  10 " << endl;
+			cout << "-------------------------------" << endl;
+			for (a = 1; a < 4; a++) {
+				for (b = 0; b < 10; b++) {
+					cout << " " << choice_seat[a][b] << " ";
+				}
+				cout << endl;
+			}
+		}
+
+		else if (choice_seat[seat_x][seat_y - 1] == 1)
+			cout << "이미 예약된 자리입니다." << endl;
+
+		else if (seat_x == 0)
+			break; //0입력하면 while전으로 돌아가는건 어케하지??
+
+
 	}
 }
 	
