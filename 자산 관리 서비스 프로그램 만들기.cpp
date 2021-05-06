@@ -2,23 +2,23 @@
 #include <string.h>
 using namespace std;
 
-int myaccounts(string* bank_name, int* bank_money) { //ÀºÇà °èÁÂ º° ±İ¾× Ãâ·Â
-	int x, y;//for¹®¿¡ °¢°¢ ½áÁÜ
-	cout << "*********** SWING ÀÚ»ê°ü¸® ¼­ºñ½º ***********" << endl;
-	cout << "============== ÀºÇà º° °èÁÂÁ¤º¸ ==============" << endl;
-	for (x = 0; x < 4; x++) { //ÀºÇà ÀÌ¸§ Ãâ·Â
+int myaccounts(string* bank_name, int* bank_money) { //ì€í–‰ ê³„ì¢Œ ë³„ ê¸ˆì•¡ ì¶œë ¥
+	int x, y;//forë¬¸ì— ê°ê° ì¨ì¤Œ
+	cout << "*********** SWING ìì‚°ê´€ë¦¬ ì„œë¹„ìŠ¤ ***********" << endl;
+	cout << "============== ì€í–‰ ë³„ ê³„ì¢Œì •ë³´ ==============" << endl;
+	for (x = 0; x < 4; x++) { //ì€í–‰ ì´ë¦„ ì¶œë ¥
 		cout << "  " << bank_name[x] << "  ";
 	}
 	cout << endl;
 
-	for (y = 0; y < 4; y++) {//ÀºÇà °èÁÂ¿¡ ÀÖ´Â µ· Ãâ·Â
-		if (bank_money[y] == 0) {//°èÁÂ ±İ¾×ÀÌ 0ÀÌ¸é °èÁÂ¾øÀ½ Ãâ·Â
-			cout << "°èÁÂ¾øÀ½";
+	for (y = 0; y < 4; y++) {//ì€í–‰ ê³„ì¢Œì— ìˆëŠ” ëˆ ì¶œë ¥
+		if (bank_money[y] == 0) {//ê³„ì¢Œ ê¸ˆì•¡ì´ 0ì´ë©´ ê³„ì¢Œì—†ìŒ ì¶œë ¥
+			cout << "ê³„ì¢Œì—†ìŒ";
 		}
 		cout << "  " << bank_money[y] << "  ";
 		/* if (bank_money[y] == 10)
 			cout << "10";
-		cout << "  " << bank_money[y] << "  ";  //0Ãâ·Â ¾ÈµÇ°Ô ÇÏ°í ½ÍÀºµ¥ ¹» ½á¾ßÇÒÁö ¸ğ¸£°Ú¾î¿ä...¤Ì¤Ì
+		cout << "  " << bank_money[y] << "  ";  //0ì¶œë ¥ ì•ˆë˜ê²Œ í•˜ê³  ì‹¶ì€ë°  ì¨ì•¼í• ì§€ ëª¨ë¥´ê² ì–´ìš”...ã…œã…œ
 		*/
 	}
 	cout << endl;
@@ -27,7 +27,7 @@ int myaccounts(string* bank_name, int* bank_money) { //ÀºÇà °èÁÂ º° ±İ¾× Ãâ·Â
 
 }
 
-int total (int *bank, int tbank_money) {//bankÀÇ ±İ¾× ´õÇÑ °ª = tbank_money·Î 
+int total (int *bank, int tbank_money) {//bankì˜ ê¸ˆì•¡ ë”í•œ ê°’ = tbank_moneyë¡œ 
 	int tt;
 	int totalmoney = 0;
 	for (tt = 0; tt < 4; tt++) {
@@ -43,9 +43,9 @@ int main(void) {
 
 	int total_money =  0;
 	int bank[4] = { 5000,4000,0,10 };
-	string bank_name[4] = { "ÇÏ³ª", "¿ì¸®", "½ÅÇÑ", "±¹¹Î" };
+	string bank_name[4] = { "í•˜ë‚˜", "ìš°ë¦¬", "ì‹ í•œ", "êµ­ë¯¼" };
 
-	/* bank_nameÇÏ°í bank¸¦ °¢°¢ Æ÷ÀÎÅÍ bankname, money·Î ÁöÁ¤ÇÔ */
+	/* bank_nameí•˜ê³  bankë¥¼ ê°ê° í¬ì¸í„° bankname, moneyë¡œ ì§€ì •í•¨ */
 	string* bankname;
 	bankname = &bank_name[0];
 
@@ -58,7 +58,7 @@ int main(void) {
 	
 	
 	cout << "==============================================" << endl;
-	cout << "ÇöÀç SWING ÀÚ»ê°ü¸® ¼­ºñ½º¿¡ µî·ÏµÈ È¸¿ø´ÔÀÇ ÃÑ ÀÚ»êÀº "<< total(bank,total_money) << "¿ø ÀÔ´Ï´Ù." << endl;
+	cout << "í˜„ì¬ SWING ìì‚°ê´€ë¦¬ ì„œë¹„ìŠ¤ì— ë“±ë¡ëœ íšŒì›ë‹˜ì˜ ì´ ìì‚°ì€ "<< total(bank,total_money) << "ì› ì…ë‹ˆë‹¤." << endl;
 	cout << "**********************************************" << endl;
 	return 0;
 }
