@@ -18,7 +18,7 @@ int myaccounts(string* bank_name, int* bank_money) { //은행 계좌 별 금액 
 		cout << "  " << bank_money[y] << "  ";
 		/* if (bank_money[y] == 10)
 			cout << "10";
-		cout << "  " << bank_money[y] << "  ";  //0출력 안되게 하고 싶은데  써야할지 모르겠어요...ㅜㅜ
+		cout << "  " << bank_money[y] << "  ";  //0출력 안되게 하고 싶은데 어떤 식으로 써야할지 모르겠어요...ㅜㅜ 
 		*/
 	}
 	cout << endl;
