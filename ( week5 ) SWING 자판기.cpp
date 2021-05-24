@@ -2,16 +2,12 @@
 #include <string>
 using namespace std;
 
-/* ¼±¾ğºÎ, ±¸ÇöºÎ, Çì´õ ÆÄÀÏ·Î ³ª´²¼­ ÀÛ¼ºÇÏ°í ÀÖ¾ú´Âµ¥ 
-¹» Àß¸ø °Çµå·È´ÂÁö ³ª´²¼­ ÀÛ¼ºÇÏ¸é °è¼Ó ½ÇÇà ¿À·ù°¡ ¶ß´õ¶ó±¸¿ä .. ¿ÖÁö */
-
-
 class VendingMachine {
 
 private:
-	string name; // À½·á ÀÌ¸§ (ÀÔ·Â¹ŞÀº°Å
-	int price; // °¡°İ (ÀÔ·Â¹ŞÀº À½·á °¡°İ
-	int total; // À½·á ÇÕ»ê °ª
+	string name; // ìŒë£Œ ì´ë¦„ (ì…ë ¥ë°›ì€ê±°
+	int price; // ê°€ê²© (ì…ë ¥ë°›ì€ ìŒë£Œ ê°€ê²©
+	int total; // ìŒë£Œ í•©ì‚° ê°’
 
 
 public:
@@ -25,10 +21,10 @@ public:
 	void setName(string n);
 	void setPrice(int p);
 	void setTotal(int t);
-	int returngap = 200; // ÀÚÆÇ±â ÃÊ±â ³»ºÎ °Å½º¸§µ·(100¿øÂ¥¸®) °³¼ö
-	int money = 0; //ÀÔ·Â¹ŞÀº µ· ÀúÀå
-	int usereturngap = 0; // »ç¿ëÇÑ ÀÚÆÇ±â °Å½º¸§µ·(100¿øÂ¥¸®) °³¼ö
-	
+	int returngap = 200; // ìíŒê¸° ì´ˆê¸° ë‚´ë¶€ ê±°ìŠ¤ë¦„ëˆ(100ì›ì§œë¦¬) ê°œìˆ˜
+	int money = 0; //ì…ë ¥ë°›ì€ ëˆ ì €ì¥
+	int usereturngap = 0; // ì‚¬ìš©í•œ ìíŒê¸° ê±°ìŠ¤ë¦„ëˆ(100ì›ì§œë¦¬) ê°œìˆ˜
+
 };
 
 int drink_price;
@@ -37,16 +33,16 @@ VendingMachine::VendingMachine() : name(" "), price(0), total(0) {}
 
 void VendingMachine::menu() {
 
-	VendingMachine drinkName[3]; //À½·á¼ö Á¾·ù ÀúÀå
-	drinkName[0].setName("ÄÚÄ«Äİ¶ó");
-	drinkName[1].setName("Ä¥¼º»çÀÌ´Ù");
-	drinkName[2].setName("¹Ì¿¡·ÎÈ­ÀÌ¹Ù");
-	// drinkName[3].setName("ÁØºñÁß");
-	
+	VendingMachine drinkName[3]; //ìŒë£Œìˆ˜ ì¢…ë¥˜ ì €ì¥
+	drinkName[0].setName("ì½”ì¹´ì½œë¼");
+	drinkName[1].setName("ì¹ ì„±ì‚¬ì´ë‹¤");
+	drinkName[2].setName("ë¯¸ì—ë¡œí™”ì´ë°”");
+	// drinkName[3].setName("ì¤€ë¹„ì¤‘");
+
 	VendingMachine* startName;
 	startName = drinkName;
 
-	VendingMachine drinkPrice[3]; //À½·á¼ö °¡°İ ÀúÀå
+	VendingMachine drinkPrice[3]; //ìŒë£Œìˆ˜ ê°€ê²© ì €ì¥
 	drinkPrice[0].setPrice(1200);
 	drinkPrice[1].setPrice(1400);
 	drinkPrice[2].setPrice(1800);
@@ -55,36 +51,36 @@ void VendingMachine::menu() {
 	VendingMachine* startPrice;
 	startPrice = drinkPrice;
 
-	cout << " ========== SWING ÀÚÆÇ±â ========== " << endl;
+	cout << " ========== SWING ìíŒê¸° ========== " << endl;
 	for (int x = 1; x <= 3; x++) {
 		cout << x << " . " << (*startName++).getName() << " : " << (*startPrice++).getPrice() << endl;
 	}
 
-	cout << "4. ÁØºñÁß" << endl;
-	cout << "5. °è»ê" << endl;
-	cout << "6. Á¾·á" << endl;
+	cout << "4. ì¤€ë¹„ì¤‘" << endl;
+	cout << "5. ê³„ì‚°" << endl;
+	cout << "6. ì¢…ë£Œ" << endl;
 	cout << endl;
 
-	cout << "Ãß°¡ÇÒ À½·á ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ";
+	cout << "ì¶”ê°€í•  ìŒë£Œ ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ";
 	cin >> name;
 
-	cout << "ÆÇ¸ÅÇÒ °¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä : ";
+	cout << "íŒë§¤í•  ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš” : ";
 	cin >> drink_price;
 	cout << endl;
 
 }
 void VendingMachine::upgrademenu() {
 
-	VendingMachine drinkName[4]; //À½·á¼ö Á¾·ù ÀúÀå
-	drinkName[0].setName("ÄÚÄ«Äİ¶ó");
-	drinkName[1].setName("Ä¥¼º»çÀÌ´Ù");
-	drinkName[2].setName("¹Ì¿¡·ÎÈ­ÀÌ¹Ù");
+	VendingMachine drinkName[4]; //ìŒë£Œìˆ˜ ì¢…ë¥˜ ì €ì¥
+	drinkName[0].setName("ì½”ì¹´ì½œë¼");
+	drinkName[1].setName("ì¹ ì„±ì‚¬ì´ë‹¤");
+	drinkName[2].setName("ë¯¸ì—ë¡œí™”ì´ë°”");
 	drinkName[3].setName(name);
 
 	VendingMachine* startName;
 	startName = drinkName;
 
-	VendingMachine drinkPrice[4]; //À½·á¼ö °¡°İ ÀúÀå
+	VendingMachine drinkPrice[4]; //ìŒë£Œìˆ˜ ê°€ê²© ì €ì¥
 	drinkPrice[0].setPrice(1200);
 	drinkPrice[1].setPrice(1400);
 	drinkPrice[2].setPrice(1800);
@@ -93,63 +89,63 @@ void VendingMachine::upgrademenu() {
 	VendingMachine* startPrice;
 	startPrice = drinkPrice;
 
-	cout << " ========== SWING ÀÚÆÇ±â ========== " << endl;
+	cout << " ========== SWING ìíŒê¸° ========== " << endl;
 	for (int x = 1; x <= 4; x++) {
 		cout << x << " . " << (*startName++).getName() << " : " << (*startPrice++).getPrice() << endl;
 	}
 
-	cout << "5. °è»ê" << endl;
-	cout << "6. Á¾·á" << endl;
+	cout << "5. ê³„ì‚°" << endl;
+	cout << "6. ì¢…ë£Œ" << endl;
 	cout << endl;
 }
 
 void VendingMachine::purchase(double v1) {
-	/* cout << "ÃÑ ±İ¾× : " << getTotal() << endl;
-	cout << "ÁöÆó¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ";
+	/* cout << "ì´ ê¸ˆì•¡ : " << getTotal() << endl;
+	cout << "ì§€íë¥¼ ì…ë ¥í•˜ì„¸ìš” : ";
 	cin >> money; */
 
 	while (1) {
-		cout << "ÃÑ ±İ¾× : " << getTotal() << endl;
-		cout << "ÁöÆó¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ";
+		cout << "ì´ ê¸ˆì•¡ : " << getTotal() << endl;
+		cout << "ì§€íë¥¼ ì…ë ¥í•˜ì„¸ìš” : ";
 		cin >> money;
 
 		if (total == money) {
-			cout << "°Å½º¸§µ·ÀÌ ¾ø½À´Ï´Ù. ¾È³çÈ÷ °¡¼¼¿ä" << endl;
-			cout << "±â±â¿¡ ³²Àº °Å½º¸§µ· (100¿ø°¹¼ö)" << returngap << endl;
-			break; // ÃÑ±İ¾× == ÀÔ·Â±İ¾×ÀÌ¸é ÇÁ·Î±×·¥ Á¾·á
+			cout << "ê±°ìŠ¤ë¦„ëˆì´ ì—†ìŠµë‹ˆë‹¤. ì•ˆë…•íˆ ê°€ì„¸ìš”" << endl;
+			cout << "ê¸°ê¸°ì— ë‚¨ì€ ê±°ìŠ¤ë¦„ëˆ (100ì›ê°¯ìˆ˜)" << returngap << endl;
+			break; // ì´ê¸ˆì•¡ == ì…ë ¥ê¸ˆì•¡ì´ë©´ í”„ë¡œê·¸ë¨ ì¢…ë£Œ
 		}
-		
-		else if (money < total) { // ÀÔ·Â±İ¾× < ÃÑ±İ¾×
-			cout << "±İ¾×ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ´Ù½Ã ³Ö¾îÁÖ¼¼¿ä" << endl;
+
+		else if (money < total) { // ì…ë ¥ê¸ˆì•¡ < ì´ê¸ˆì•¡
+			cout << "ê¸ˆì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤. ë‹¤ì‹œ ë„£ì–´ì£¼ì„¸ìš”" << endl;
 			cout << endl;
 			continue;
 		}
-		else if (money > total) { // ÀÔ·Â±İ¾× > ÃÑ±İ¾×
-			int rest = money - total;//rest¿¡ ÀÔ·Â±İ¾×¿¡¼­ ÃÑ ±İ¾×À» »« ÀÜµ· ÀúÀå
+		else if (money > total) { // ì…ë ¥ê¸ˆì•¡ > ì´ê¸ˆì•¡
+			int rest = money - total;//restì— ì…ë ¥ê¸ˆì•¡ì—ì„œ ì´ ê¸ˆì•¡ì„ ëº€ ì”ëˆ ì €ì¥
 
-			//°Å½º¸§µ· ±â±â³»¿¡¼­ ÁÙ¼öÀÖ´Â ¹üÀ§ÀÏ¶§
-			if ((rest / 100) <= returngap) { //³²Àº±İ¾× ³ª´©±â 100ÀÇ ¸òÀÌ ÀÜµ·º¸´Ù °°°Å³ª ÀûÀ»¶§
-				if (rest % 100 == 1) { // ³²Àº±İ¾×À» 100À¸·Î ³ª´©¾úÀ»¶§ÀÇ ³ª¸ÓÁö°¡ 1ÀÏ¶§
-					cout << "°Å½º¸§µ·Àº 100¿ø¸¸ °¡´ÉÇÕ´Ï´Ù." << endl;
+			//ê±°ìŠ¤ë¦„ëˆ ê¸°ê¸°ë‚´ì—ì„œ ì¤„ìˆ˜ìˆëŠ” ë²”ìœ„ì¼ë•Œ
+			if ((rest / 100) <= returngap) { //ë‚¨ì€ê¸ˆì•¡ ë‚˜ëˆ„ê¸° 100ì˜ ëª«ì´ ì”ëˆë³´ë‹¤ ê°™ê±°ë‚˜ ì ì„ë•Œ
+				if (rest % 100 == 1) { // ë‚¨ì€ê¸ˆì•¡ì„ 100ìœ¼ë¡œ ë‚˜ëˆ„ì—ˆì„ë•Œì˜ ë‚˜ë¨¸ì§€ê°€ 1ì¼ë•Œ
+					cout << "ê±°ìŠ¤ë¦„ëˆì€ 100ì›ë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤." << endl;
 				}
-				else if (rest % 100 == 50) {  // ³²Àº±İ¾×À» 100À¸·Î ³ª´©¾úÀ»¶§ÀÇ ³ª¸ÓÁö°¡ 50ÀÏ¶§
-					cout << "°Å½º¸§µ·Àº 100¿ø¸¸ °¡´ÉÇÕ´Ï´Ù." << endl;
+				else if (rest % 100 == 50) {  // ë‚¨ì€ê¸ˆì•¡ì„ 100ìœ¼ë¡œ ë‚˜ëˆ„ì—ˆì„ë•Œì˜ ë‚˜ë¨¸ì§€ê°€ 50ì¼ë•Œ
+					cout << "ê±°ìŠ¤ë¦„ëˆì€ 100ì›ë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤." << endl;
 				}
 				usereturngap = rest / 100;
-				cout << "°Å½º¸§ µ·ÀÔ´Ï´Ù." << endl;
-				cout << "100¿ø : " << usereturngap << "°³" << endl;
-				
-				cout << "±â±â¿¡ ³²Àº °Å½º¸§µ·(100¿ø °³¼ö) : " << returngap - usereturngap << "°³" << endl;
+				cout << "ê±°ìŠ¤ë¦„ ëˆì…ë‹ˆë‹¤." << endl;
+				cout << "100ì› : " << usereturngap << "ê°œ" << endl;
+
+				cout << "ê¸°ê¸°ì— ë‚¨ì€ ê±°ìŠ¤ë¦„ëˆ(100ì› ê°œìˆ˜) : " << returngap - usereturngap << "ê°œ" << endl;
 				break;
 			}
 
-			else if ((rest / 100) > returngap) { //±â±â ³»¿¡¼­ ÁÙ ¼ö ÀÖ´Â ¹üÀ§ ¾Æ´Ò¶§
-				cout << "°Å½º¸§ µ·ÀÔ´Ï´Ù." << endl;
-				cout << "±â±â³»ÀÇ ÀÜµ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. 010-0000-0000À¸·Î ¿¬¶ôÁÖ¼¼¿ä" << endl;
+			else if ((rest / 100) > returngap) { //ê¸°ê¸° ë‚´ì—ì„œ ì¤„ ìˆ˜ ìˆëŠ” ë²”ìœ„ ì•„ë‹ë•Œ
+				cout << "ê±°ìŠ¤ë¦„ ëˆì…ë‹ˆë‹¤." << endl;
+				cout << "ê¸°ê¸°ë‚´ì˜ ì”ëˆì´ ë¶€ì¡±í•©ë‹ˆë‹¤. 010-0000-0000ìœ¼ë¡œ ì—°ë½ì£¼ì„¸ìš”" << endl;
 				usereturngap = rest / 100 - 200;
 				returngap = 0;
-				cout << "±â±â¿¡ ³²Àº °Å½º¸§µ·(100¿ø °³¼ö) : " << returngap << endl;
-				// cout << "ºÎÁ·ÇÑ °Å½º¸§µ·(100¿ø °³¼ö) : " << usereturngap << endl;
+				cout << "ê¸°ê¸°ì— ë‚¨ì€ ê±°ìŠ¤ë¦„ëˆ(100ì› ê°œìˆ˜) : " << returngap << endl;
+				// cout << "ë¶€ì¡±í•œ ê±°ìŠ¤ë¦„ëˆ(100ì› ê°œìˆ˜) : " << usereturngap << endl;
 				break;
 			}
 		}
@@ -183,41 +179,41 @@ int main() {
 	drink.menu();
 	drink.upgrademenu();
 
-	int num, coke, soda, bitamin, unknown; //drinkName ¹è¿­¿¡ ÀÖ´Â ¼ø¼­´ë·Î Àû¿ë
+	int num =0, coke = 0, soda = 0, bitamin = 0, unknown = 0; //drinkName ë°°ì—´ì— ìˆëŠ” ìˆœì„œëŒ€ë¡œ ì ìš©
 
-	while (1) {// ±İ¾× °è»ê
-		
+	while (1) {// ê¸ˆì•¡ ê³„ì‚°
+
 		cout << endl;
-		cout << "¹øÈ£¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä : ";
+		cout << "ë²ˆí˜¸ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš” : ";
 		cin >> num;
-		
+
 
 		if (num == 1) {
-			cout << "±¸¸ÅÇÒ ¼ö·®À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ";
+			cout << "êµ¬ë§¤í•  ìˆ˜ëŸ‰ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ";
 			cin >> coke;
 			cout << endl;
 		}
 
 		else if (num == 2) {
-			cout << "±¸¸ÅÇÒ ¼ö·®À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ";
+			cout << "êµ¬ë§¤í•  ìˆ˜ëŸ‰ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ";
 			cin >> soda;
 			cout << endl;
 		}
 
 		else if (num == 3) {
-			cout << "±¸¸ÅÇÒ ¼ö·®À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ";
+			cout << "êµ¬ë§¤í•  ìˆ˜ëŸ‰ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ";
 			cin >> bitamin;
 			cout << endl;
 		}
 
 		else if (num == 4) {
-			cout << "±¸¸ÅÇÒ ¼ö·®À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ";
+			cout << "êµ¬ë§¤í•  ìˆ˜ëŸ‰ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ";
 			cin >> unknown;
 			cout << endl;
 		}
 
 		else if (num == 5) {
-			cout << "°è»ê ÁßÀÔ´Ï´Ù. ±â´Ù·ÁÁÖ¼¼¿ä . . . . " << endl;
+			cout << "ê³„ì‚° ì¤‘ì…ë‹ˆë‹¤. ê¸°ë‹¤ë ¤ì£¼ì„¸ìš” . . . . " << endl;
 			cout << endl;
 
 			drink.setTotal((1200 * coke) + (1400 * soda) + (1800 * bitamin) + (drink_price * unknown));
